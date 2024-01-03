@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        
+        <record id="view_gestor_transaccion_wizard" model="ir.ui.view">
+            <field name="name">gestor.transaccion.wizard</field>
+            <field name="model">gestor.transaccion.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Buscar Un Ticket">
+                    <group>
+                        <field name="state" 
+                               options="{'no_quick_create': True, 'no_create_edit': True}"
+                        >
+                        </field>
+                    </group>
+                    <footer>
+                        <button 
+                            name="print_report"
+                            string="Imprime Reporte"
+                            type="object"> 
+                        </button>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ventana wizard(emergente)-->
+        <record model="ir.actions.act_window" id="lista_ticket">
+            <field name="name">Reporte de Ticket</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gestor.transaccion.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        
+    </data>
+</odoo>

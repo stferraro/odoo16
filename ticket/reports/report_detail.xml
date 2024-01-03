@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="ticket.report_detail">
+            <t t-call="web.basic_layout">
+                <div>
+                    <h2>Reporte de Gestor Transaccion</h2>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Referencia</th>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Moneda</th>
+                                <th>Compañia</th>
+                                <!-- Agregar más columnas según sea necesario -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="data" t-as="line">
+                                <td style="text-align: center;"><span t-esc="line['reference']"/></td>
+                                <td style="text-align: center;"><span t-esc="line['name']"/></td>
+                                <td style="text-align: center;"><span t-esc="line['date']"/></td>
+                                <td style="text-align: center;"><span t-esc="line['currency_id']"/></td>
+                                <td style="text-align: center;"><span t-esc="line['company_id']"/></td>
+                                <!-- Agregar más celdas según sea necesario -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

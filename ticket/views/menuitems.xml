@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <menuitem name="Ticket" id="ticket.menu_root"/>
+        <menuitem name="Menu Ticket" id="ticket.menu_1" parent="ticket.menu_root"/>
+        <menuitem name="Lista Ticket" id="ticket_menu_1_list" parent="ticket.menu_1" action="ticket.action_window"/>
+
+        <menuitem name="Reports" id="ticket.reports" parent="ticket.menu_root"/>
+        <menuitem name="Reporte de Tickets" id="ticket_menu_2_list" parent="ticket.reports" action="ticket.lista_ticket"/>
+    </data>
+</odoo>

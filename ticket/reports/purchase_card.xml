@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="report_purchase_detail">
+        <t t-name="ticket.report_purchase_detail">
+            <t t-name="ticket.report_sale_detail">
+                <t t-call="web.html_container"/>
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <header>
+                            <div class="row">
+                                <div class="col-auto">Fecha Actual:<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/></div>
+                            </div>
+                        </header>
+                        <table class="table">
+                          <tr>
+                            <td>Nombre:<span t-esc="o.name"/></td>
+                            <td>Moneda:<span t-esc="o.currency_id.name"/></td>
+                          </tr>
+                          <tr>
+                            <td>Fecha:<span t-esc="o.date.strftime('%d/%m/%Y')"/></td>
+                            <td>Compañia:<span t-esc="o.company_id.name"/></td>
+                          </tr>
+                        </table>
+                        <t t-if="o.purchase_ids">
+                          <span><strong>Compras</strong></span>
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <td><span>Numero</span></td>
+                                <td><span>Estado</span></td>
+                                <td><span>%</span></td>
+                                <td><span>Total</span></td>
+                              </tr>
+                            </thead>
+                            <t t-set="purchase_count" t-value="0"/>
+                            <t t-set="purchase_counter" t-value="0"/>
+                            <t t-foreach="o.purchase_ids" t-as="purchase">
+                              <t t-set="purchase_count" t-value="purchase_count+1"/>
+                              <tr>
+                                <td><span t-field="purchase.purchase_id"/></td>
+                                <td><span t-field="purchase.state"/></td>
+                                <td><span t-field="purchase.percentage"/></td>
+                                <td><span t-field="purchase.total"/></td>
+                              </tr>
+                              <t t-set="purchase_counter" t-value="purchase_counter+purchase.total"/>
+                              </t>
+                              <tr>
+                                <td colspan="3">
+                                </td>
+                                <td>
+                                    <strong>Total: </strong><span t-esc="purchase_counter" t-options="{'widget':'float', 'precision':2}"/>
+                                </td>
+                              </tr>
+                            </table>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    
+</odoo>

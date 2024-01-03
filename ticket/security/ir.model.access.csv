@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestor_transaccion,gestor.transaccion,model_gestor_transaccion,base.group_user,1,1,1,1
+access_gestor_transaccion_compra,gestor.transaccion.compra,model_gestor_transaccion_compra,base.group_user,1,1,1,1
+access_gestor_transaccion_venta,gestor.transaccion.venta,model_gestor_transaccion_venta,base.group_user,1,1,1,1
+access_gestor_transaccion_wizard,gestor.transaccion.wizard,model_gestor_transaccion_wizard,base.group_user,1,1,1,1

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="reporte_gestor_transaccion_ventas" model="ir.actions.report">
+        <field name="name">Reporte de Ventas</field>
+        <field name="model">gestor.transaccion</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ticket.report_sale_detail</field>
+        <field name="report_file">ticket.report_sale_detail</field>
+        <field name="binding_model_id" ref="model_gestor_transaccion"></field>
+    </record>
+
+    <record id="reporte_gestor_transaccion_compras" model="ir.actions.report">
+        <field name="name">Reporte de Compras</field>
+        <field name="model">gestor.transaccion</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ticket.report_purchase_detail</field>
+        <field name="report_file">ticket.report_purchase_detail</field>
+        <field name="binding_model_id" ref="model_gestor_transaccion"></field>
+    </record>
+    
+    <record id="action_report_gestor_transaccion" model="ir.actions.report">
+        <field name="name">Reporte de transacciones</field>
+        <field name="model">gestor.transaccion.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ticket.report_detail</field>
+        <field name="report_file">ticket.report_detail</field>
+    </record>
+</odoo>
